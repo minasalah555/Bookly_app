@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/Splash/presentation/views/widgets/animation_text.dart';
 import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets.dart';
@@ -35,15 +36,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
       children: [
         Image.asset(AssetsData.logo),
         const SizedBox(height: 8),
-        AnimatedBuilder(
-          animation: slidingAnimation,
-          builder: (context, _) {
-            return SlideTransition(
-              position: slidingAnimation,
-              child: const Text('Read Free Books', textAlign: TextAlign.center),
-            );
-          },
-        ),
+        AnimationText(slidingAnimation: slidingAnimation),
       ],
     );
   }
@@ -58,6 +51,9 @@ class _SplachViewBodyState extends State<SplachViewBody>
       end: Offset(0, 0),
     ).animate(ainmationController);
     ainmationController.forward();
+    // slidingAnimation.addListener(() {
+    //   setState(() {});
+    // });
   }
 
   void navigationToHome() {
