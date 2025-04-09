@@ -19,6 +19,7 @@ class HomeViewBody extends StatelessWidget {
           padding: const EdgeInsets.only(left: 20, top: 40),
           child: Text('Best Seller', style: Styles.textStyle18),
         ),
+        const SizedBox(height: 20),
         BestSellerListViewItem(),
       ],
     );
@@ -47,6 +48,20 @@ class BestSellerListViewItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
+            ),
+            const SizedBox(width: 30),
+            Column(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    'Harry Poter \n and the Gold of Fire',
+                    style: Styles.textStyle20,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
