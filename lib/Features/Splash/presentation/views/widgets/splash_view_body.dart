@@ -1,9 +1,10 @@
 import 'package:bookly_app/Features/Splash/presentation/views/widgets/animation_text.dart';
 import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/utils/app_routers.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplachViewBody extends StatefulWidget {
   const SplachViewBody({super.key});
@@ -58,11 +59,12 @@ class _SplachViewBodyState extends State<SplachViewBody>
 
   void navigationToHome() {
     Future.delayed(Duration(seconds: 2), () {
-      Get.to(
-        () => HomeView(),
-        transition: Transition.fade,
-        duration: kNavigationDuration,
-      );
+      // Get.to(
+      //   () => HomeView(),
+      //   transition: Transition.fade,
+      //   duration: kNavigationDuration,
+      // );
+      GoRouter.of(context).push(AppRouters.homeView);
     });
   }
 }
