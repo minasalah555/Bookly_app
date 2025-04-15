@@ -13,11 +13,18 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming',
+            'volumes?Filtering=free-ebooks&Sorting=newest&q=Computer Science',
       );
       List<BookModel> books = [];
+      print('Mina Salah -> ${data.length}');
       for (int i = 0; i < data.length; i++) {
-        books.add(BookModel.fromJson(data['items']));
+        try {
+          books.add(BookModel.fromJson(data['items'][i]));
+        } catch (e) {
+          //make break point her to catch error on line 24
+          books.add(BookModel.fromJson(data['items'][i]));
+          print(data['items'][i]);
+        }
       }
       return right(books);
     } catch (e) {

@@ -27,7 +27,10 @@ class BokklyApp extends StatelessWidget {
                     ..fetchFeaturedBooks(),
         ),
         BlocProvider(
-          create: (context) => BestSellerBooksCubit(getIt.get<HomeRepoImpl>()),
+          create:
+              (context) =>
+                  BestSellerBooksCubit(getIt.get<HomeRepoImpl>())
+                    ..fetchNewsetBooks(),
         ),
       ],
       child: MaterialApp.router(

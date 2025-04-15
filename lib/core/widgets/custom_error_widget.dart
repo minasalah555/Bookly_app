@@ -6,6 +6,10 @@ class CustomErrorWidget extends StatelessWidget {
   final String errMessage;
   @override
   Widget build(BuildContext context) {
-    return Text('$errMessage Mina Salah', style: Styles.textStyle18);
+    return Text(
+      '$errMessage Mina Salah',
+      style: Styles.textStyle18,
+      textAlign: TextAlign.center,
+    );
   }
 }
