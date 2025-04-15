@@ -15,7 +15,10 @@ class SimilerBooksListView extends StatelessWidget {
         itemBuilder: (constext, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-            child: FeatureListViewItem(),
+            child: FeatureListViewItem(
+              imageUrl:
+                  'http://books.google.com/books/content?id=4MlcEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+            ),
           );
         },
       ),

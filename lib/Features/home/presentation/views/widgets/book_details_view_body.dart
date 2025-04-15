@@ -45,7 +45,10 @@ class CustomBookDetailsSection extends StatelessWidget {
           SizedBox(height: 10),
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
-            child: FeatureListViewItem(),
+            child: FeatureListViewItem(
+              imageUrl:
+                  'http://books.google.com/books/content?id=4MlcEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+            ),
           ),
           SizedBox(height: 23),
         ],
