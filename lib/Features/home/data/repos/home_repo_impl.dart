@@ -21,7 +21,7 @@ class HomeRepoImpl implements HomeRepo {
         try {
           books.add(BookModel.fromJson(data['items'][i]));
         } catch (e) {
-          //make break point her to catch error on line 24
+          //make break point her to catch error on line 25
           books.add(BookModel.fromJson(data['items'][i]));
           print(data['items'][i]);
         }
@@ -40,6 +40,29 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming',
+      );
+      List<BookModel> books = [];
+      for (int i = 0; i < data.length; i++) {
+        books.add(BookModel.fromJson(data['items'][i]));
+      }
+      // print(books[0]);
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilerBooks({
+    required String categry,
+  }) async {
+    try {
+      var data = await apiServices.get(
+        endPoint:
+            'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:Programming',
       );
       List<BookModel> books = [];
       for (int i = 0; i < data.length; i++) {
