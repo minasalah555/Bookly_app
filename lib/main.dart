@@ -4,12 +4,14 @@ import 'package:bookly_app/Features/home/presentation/manager/featured_books_cub
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_routers.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
+import 'package:bookly_app/simple_observed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   setup();
+  Bloc.observer = SimpleObserved();
   runApp(BokklyApp());
 }
 

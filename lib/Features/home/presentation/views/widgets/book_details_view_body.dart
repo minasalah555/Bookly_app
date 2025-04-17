@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/button_actions.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_app_bar_book_details.dart';
@@ -14,7 +14,7 @@ class BookDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverFillRemaining(
+        SliverToBoxAdapter(
           child: Column(
             children: [
               CustomBookDetailsSection(bookModel: book),
@@ -22,11 +22,13 @@ class BookDetailsViewBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: BookDetailsSection(bookModel: book),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 10),
-                child: SimilerBooksSection(),
-              ),
             ],
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30, top: 10),
+            child: Expanded(child: SimilerBooksSection()),
           ),
         ),
       ],

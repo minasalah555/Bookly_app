@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:bookly_app/constants.dart';
@@ -42,8 +42,9 @@ class BestSellerListViewItem extends StatelessWidget {
                   ),
                   SizedBox(height: 3),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ?? '',
                     style: Styles.textStyle14,
+                    maxLines: 1,
                   ),
                   SizedBox(height: 3),
                   Row(

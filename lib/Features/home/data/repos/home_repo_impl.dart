@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/data/repos/home_repo.dart';
 import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/core/utils/api_services.dart';
@@ -61,8 +61,7 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       var data = await apiServices.get(
-        endPoint:
-            'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:Programming',
+        endPoint: 'volumes?Sorting=relevance&q=$categry',
       );
       List<BookModel> books = [];
       for (int i = 0; i < data.length; i++) {
